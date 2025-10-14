@@ -1,0 +1,11 @@
+generate_cv_tags:
+  device_tags:
+    - name: Campus
+      value: ANet
+    - name: Campus-Pod
+      value: Munich
+    - name: Access-Pod
+      value: IDF1
+  interface_tags:
+    - name: Link-Type
+      value: Fabric

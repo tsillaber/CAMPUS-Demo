@@ -1,0 +1,68 @@
+all:
+  hosts:
+    cloudvision:
+      ansible_host: www.cv-staging.corp.arista.io
+      ansible_user: cvaas
+      ansible_password: "{{ lookup('file', '/workspaces/CAMPUS-Demo/cvaas.token')}}"
+  children:
+    ANet:
+      vars:
+        ansible_user: admin
+        ansible_become: true
+        ansible_become_method: enable
+        ansible_httpapi_use_ssl: true
+        ansible_httpapi_validate_certs: false
+        ansible_httpapi_use_proxy: false
+        ansible_connection: ansible.netcommon.httpapi
+        ansible_network_os: arista.eos.eos
+      children:
+        CAMPUS:
+          children:
+            CAMPUS_SPINES:
+              vars:
+                type: l3spine
+              hosts:
+                campus-spine1:
+                  ansible_host: clab-campus-fabric-spine1
+                  serial_number: TSCAMPUS001
+                campus-spine2:
+                  ansible_host: clab-campus-fabric-spine2
+                  serial_number: TSCAMPUS002
+            CAMPUS_LEAFS:
+              vars:
+                type: l2leaf
+              children:
+                IDF1:
+                  hosts:
+                    campus-leaf1a:
+                      ansible_host: clab-campus-fabric-leaf1a
+                      serial_number: TSCAMPUS003
+                    campus-leaf1b:
+                      ansible_host: clab-campus-fabric-leaf1b
+                      serial_number: TSCAMPUS004
+                IDF2:
+                  hosts:
+                    campus-leaf2a:
+                      ansible_host: clab-campus-fabric-leaf2a
+                      serial_number: TSCAMPUS005
+                IDF3:
+                  hosts:
+                    campus-leaf3a:
+                      ansible_host: clab-campus-fabric-leaf3a
+                      serial_number: TSCAMPUS006
+                    campus-leaf3b:
+                      ansible_host: clab-campus-fabric-leaf3b
+                      serial_number: TSCAMPUS007
+                    campus-leaf3c:
+                      ansible_host: clab-campus-fabric-leaf3c
+                      serial_number: TSCAMPUS008
+                    campus-leaf3d:
+                      ansible_host: clab-campus-fabric-leaf3d
+                      serial_number: TSCAMPUS009
+                    campus-leaf3e:
+                      ansible_host: clab-campus-fabric-leaf3e
+                      serial_number: TSCAMPUS010
+    NETWORK_SERVICES:
+      children:
+        CAMPUS_LEAFS:
+        CAMPUS_SPINES:
