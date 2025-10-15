@@ -9,7 +9,7 @@ topology:
     keysight_ixia-c-one:
       image: ghcr.io/open-traffic-generator/ixia-c-one:latest
     arista_ceos:
-      image: ceos:4.34.1F
+      image: ceos:4.34.3M
       env:
         CLAB_MGMT_VRF: MGMT
       binds:
