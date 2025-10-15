@@ -90,6 +90,14 @@
 
 | POD | Node | Loopback0 |
 | --- | ---- | --------- |
+| ANet | campus-leaf1a | 20.20.20.20/32 |
+| ANet | campus-leaf1b | 20.20.20.20/32 |
+| ANet | campus-leaf2a | 20.20.20.20/32 |
+| ANet | campus-leaf3a | 20.20.20.20/32 |
+| ANet | campus-leaf3b | 20.20.20.20/32 |
+| ANet | campus-leaf3c | 20.20.20.20/32 |
+| ANet | campus-leaf3d | 20.20.20.20/32 |
+| ANet | campus-leaf3e | 20.20.20.20/32 |
 | ANet | campus-spine1 | 172.16.1.1/32 |
 | ANet | campus-spine2 | 172.16.1.2/32 |
 

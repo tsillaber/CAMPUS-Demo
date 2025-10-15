@@ -24,6 +24,7 @@ clean: ## Clean logs and files related to clab and avd
 	-sudo containerlab destroy --cleanup 
 	rm -f .*.clab.yml* avd/ansible.log
 	sudo rm -rf clab-*
+	sudo rm -rf avd/intended/
 
 .PHONY: save
 save: ## Save clab topology

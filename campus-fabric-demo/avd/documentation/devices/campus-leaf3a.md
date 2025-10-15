@@ -33,6 +33,7 @@
   - [Switchport Default](#switchport-default)
   - [Ethernet Interfaces](#ethernet-interfaces)
   - [Port-Channel Interfaces](#port-channel-interfaces)
+  - [Loopback Interfaces](#loopback-interfaces)
   - [VLAN Interfaces](#vlan-interfaces)
 - [Routing](#routing)
   - [Service Routing Protocols Model](#service-routing-protocols-model)
@@ -524,6 +525,31 @@ interface Port-Channel983
    switchport mode trunk
    switchport trunk group MLAG
    switchport
+```
+
+### Loopback Interfaces
+
+#### Loopback Interfaces Summary
+
+##### IPv4
+
+| Interface | Description | VRF | IP Address |
+| --------- | ----------- | --- | ---------- |
+| Loopback0 | sflow | default | 20.20.20.20/32 |
+
+##### IPv6
+
+| Interface | Description | VRF | IPv6 Address |
+| --------- | ----------- | --- | ------------ |
+| Loopback0 | sflow | default | - |
+
+#### Loopback Interfaces Device Configuration
+
+```eos
+!
+interface Loopback0
+   description sflow
+   ip address 20.20.20.20/32
 ```
 
 ### VLAN Interfaces

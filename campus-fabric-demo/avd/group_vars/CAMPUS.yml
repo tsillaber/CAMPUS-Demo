@@ -40,6 +40,11 @@ l2leaf:
     inband_mgmt_vlan: 10
     campus: ANet
     campus_pod: Krakau
+    structured_config:
+      loopback_interfaces:
+        - name: "Loopback0"
+          description: "sflow"
+          ip_address: 20.20.20.20/32
   node_groups:
     - group: IDF1
       campus_access_pod: IDF1
